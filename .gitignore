@@ -1,0 +1,14 @@
+# Ignore outputs
+out/*
+output/*
+
+# Ignore build and libs dir
+build
+libs/*
+
+
+# Ignore executables
+bin/*
+
+# Ignore Mac dumb files
+.DS_Store
