@@ -1,3 +1,6 @@
+before_install:
+  - mkdir bin build
+
 language: c++
 
 compiler:
