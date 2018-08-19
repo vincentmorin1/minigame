@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vincentmorin1/minigame.svg?branch=master)](https://travis-ci.org/vincentmorin1/minigame)
+
 # Our minigame by @Chocorean & @vincentmorin1
 
 ## Table of contents
