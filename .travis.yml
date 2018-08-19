@@ -2,9 +2,11 @@ sudo: required
 
 before_install:
   - mkdir bin build tmp
-  - wget http://launchpadlibrarian.net/152907094/libsdl1.2-dev_1.2.15-5ubuntu2_amd64.deb
-  - sudo dpkg -i *.deb
-  - rm *.deb
+  - sudo apt install -y libsdl1.2-dev
+
+addons:
+  apt:
+    update: true
 
 language: c++
 
