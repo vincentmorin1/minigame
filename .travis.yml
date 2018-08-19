@@ -1,6 +1,3 @@
-before_install:
-  - chmod bin build
-
 language: c++
 
 compiler:
