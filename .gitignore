@@ -10,5 +10,8 @@ libs/*
 # Ignore executables
 bin/*
 
-# Ignore Mac dumb files
+# Ignore Mac files
 .DS_Store
+
+# Ignore vscode files
+.vscode/*
