@@ -6,7 +6,7 @@
 * [License](#license)
 * [Downloads](#downloads)
 * [Mods](#mods)
-* [For devs](#for%20devs)
+* [For devs](#for devs)
 
 ## Introduction
 
