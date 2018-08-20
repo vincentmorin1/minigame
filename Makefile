@@ -8,8 +8,8 @@ SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 CFLAGS := -g -Wall
 LDFLAGS := -lSDL -lGL -lGLU
-LIB := -L lib -L /usr/local/Cellar
-INC := -I include
+LIB := -L lib -L /usr/local/Cellar -L /usr/local/lib
+INC := -I include -I /usr/local/include
 
 $(TARGET): $(OBJECTS)
 	@echo "Linking..."
