@@ -4,47 +4,45 @@
  * @author Chocorean
  */
 
+#include <iostream>
+
+// OS distinctions
+    // Windows
+#if defined(_WIN32) || defined(WIN32)
+    #include <windows.h>
+#endif
+    // MacOS
+#ifdef __APPLE__
+    #include <OpenGL/gl.h>
+    #include <OpenGL/glu.h>
+#endif
+    // Linux
+#ifdef linux
+    #include <GL/gl.h>
+    #include <GL/glu.h>
+#endif
+
 // Including SDL
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 
-// Including windows.h for VSCode users on Windows
-// #include <windows.h>
+// Setting namespace
+using namespace std;
 
-// Including openGL
-#include <GL/gl.h>
-#include <GL/glu.h>
+//Screen dimension constants
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
 
+/* ==== MAIN PROGRAM ==== */
 int main(int argc, char *argv[])
 {
-    SDL_Init(SDL_INIT_VIDEO);
-    SDL_WM_SetCaption("My minigame !", NULL);
-    SDL_SetVideoMode(640, 480, 32, SDL_OPENGL);
-
-    bool run = true;
-    SDL_Event event;
-
-    while (run)
+    // Initialisation de la SDL
+    if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        SDL_WaitEvent(&event);
-        switch(event.type)
-        {
-            case SDL_QUIT:
-                run = !run;
-        }
-		// display starts here
-		glClear(GL_COLOR_BUFFER_BIT);
-
-        glBegin(GL_TRIANGLES);
-            glColor3ub(255,0,0);    glVertex2d(-0.75,-0.75);
-            glColor3ub(0,255,0);    glVertex2d(0,0.75);
-            glColor3ub(0,0,255);    glVertex2d(0.75,-0.75);
-        glEnd();
-
-        glFlush();
-
-        SDL_GL_SwapBuffers();
+        cout << "Could not initialize SDL2: " << SDL_GetError() << endl;
+        SDL_Quit();
+        return -1;
     }
-
+    // Exiting SDL...
     SDL_Quit();
     return 0;
 }
