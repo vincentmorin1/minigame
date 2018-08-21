@@ -10,15 +10,16 @@ LIB := -L lib -L /usr/local/Cellar -L /usr/local/lib
 INC := -I include -I /usr/local/include
 
 CFLAGS := -g -Wall
-# Linux (default)
-LDFLAGS = -lSDL2 -lGL -lGLU
-# Windows (cygwin)
 ifeq ($(OS), "Windows_NT")
-	LDFLAGS = -lSDL2 -lopengl32 -lglu32
-endif
-# OS X
-ifeq ($(OSTYPE), "darwin9.0")
-	LDFLAGS = -lSDL2 -framework Carbon -framework OpenGL
+		LDFLAGS := -lSDL2 -lopengl32 -lglu32
+else
+UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Linux)
+			LDFLAGS := -lSDL2 -lGL -lGLU
+	endif
+	ifeq ($(UNAME_S),Darwin)
+			LDFLAGS := -lSDL2 -framework Carbon -framework OpenGL
+	endif
 endif
 
 $(TARGET): $(OBJECTS)
