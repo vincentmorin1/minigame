@@ -17,7 +17,7 @@ language: c++
 compiler:
   - gcc
 script:
-	- make clean
-	- build-wrapper-linux-x86-64 --out-dir bw-output make
-	- make test
+  - make clean
+  - build-wrapper-linux-x86-64 --out-dir bw-output make
+  - make test
   - sonar-scanner
