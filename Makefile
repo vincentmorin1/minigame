@@ -7,7 +7,7 @@ SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 LIB := -L lib -L /usr/local/Cellar -L /usr/local/lib
-INC := -I include -I /usr/local/include
+INC := -I include -I /usr/local/include -I /usr/include/c++/7
 
 CFLAGS := -g -Wall
 ifeq ($(OS), "Windows_NT")
@@ -28,7 +28,6 @@ $(TARGET): $(OBJECTS)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(BUILDDIR)
-	@echo "Building..."
 	@echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 clean:
