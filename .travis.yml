@@ -16,4 +16,5 @@ compiler:
   - gcc
 
 script:
-- make
+	- make
+  - sonar-scanner
