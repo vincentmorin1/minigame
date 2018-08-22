@@ -10,7 +10,7 @@ addons:
   apt:
     update: true
   sonarcloud:
-    organization: "chocotmorin"
+    organization: "minigamedusale"
     token: $SONAR_TOKEN
 language: c++
 
