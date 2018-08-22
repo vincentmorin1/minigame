@@ -4,26 +4,23 @@
  * @author Chocorean
  */
 
-#include <iostream>
-
 // OS distinctions
-    // Windows
 #if defined(_WIN32) || defined(WIN32)
-    #include <windows.h>
+#include <windows.h>
 #endif
-    // MacOS
 #ifdef __APPLE__
-    #include <OpenGL/gl.h>
-    #include <OpenGL/glu.h>
-#endif
-    // Linux
-#ifdef linux
-    #include <GL/gl.h>
-    #include <GL/glu.h>
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#else // Windows & Linux
+#include <GL/gl.h>
+#include <GL/glu.h>
 #endif
 
 // Including SDL
 #include <SDL2/SDL.h>
+
+// Including custom logger
+#include "Logger.h"
 
 // Setting namespace
 using namespace std;
@@ -34,16 +31,26 @@ const int SCREEN_HEIGHT = 600;
 const char *GAME_NAME = "Minigame !";
 
 /* ==== MAIN PROGRAM ==== */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-    SDL_Window *window(0);
+    // Init
+    Logger(INFO) << "Welcome to our minigame !";
+    Logger(INFO) << "Main executed with " << (argc - 1) << " arguments";
+    if (argc > 1)
+    {
+        for (int i=1; i<argc; i++)
+        {
+            Logger(INFO) << "    Argument #" << i << ": " << *(argv+i);
+        }
+    }
     // SDL2 Init
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        cout << "Could not initialize SDL2: " << SDL_GetError() << endl;
+        Logger(ERROR) << "Could not initialize SDL2: " << SDL_GetError();
         SDL_Quit();
         return -1;
     }
+    Logger(DEBUG) << "SDL correctly initialized.";
     // OpenGL version
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
@@ -53,23 +60,26 @@ int main(int argc, char *argv[])
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
     // Creating window
+    SDL_Window *window(0);
     window = SDL_CreateWindow(GAME_NAME, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
     if(window == 0)
     {
-        cout << "Could not create window: " << SDL_GetError() << endl;
+        Logger(ERROR) << "Could not create window: " << SDL_GetError();
         SDL_Quit();
         return -1;
     }
+    Logger(DEBUG) << "Window created.";
     // Linking OpenGL context to window
     SDL_GLContext openGLContext(0);
     openGLContext = SDL_GL_CreateContext(window);
     if(openGLContext == 0)
     {
-        cout << "Could not link OpenGL context: " << SDL_GetError() << endl;
+        Logger(ERROR) << "Could not link OpenGL context: " << SDL_GetError();
         SDL_DestroyWindow(window);
         SDL_Quit();
         return -1;
     }
+    Logger(DEBUG) << "OpenGL context linked to the window.";
     // Displaying window
     SDL_Event events;
     bool run(true);
@@ -80,6 +90,7 @@ int main(int argc, char *argv[])
             run = !run;
     }
     // Exiting SDL..
+    Logger(INFO) << "Leaving... Bye!";
     SDL_GL_DeleteContext(openGLContext);
     SDL_DestroyWindow(window);
     SDL_Quit();
