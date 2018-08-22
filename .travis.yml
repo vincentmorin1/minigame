@@ -16,7 +16,6 @@ language: c++
 
 compiler:
   - gcc
-
 script:
   - make
   - sonar-scanner
