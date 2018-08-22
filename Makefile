@@ -1,5 +1,5 @@
 CC := g++
-SRCDIR := src
+SRCDIR := src/main
 BUILDDIR := build
 TARGET := bin/runner
 
@@ -36,7 +36,7 @@ clean:
 	@echo "$(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
 
 test:
-	$(CC) $(CFLAGS) test/tester.cpp $(INC) $(LIB) -o bin/tester
+	$(CC) $(CFLAGS) src/test/tester.cpp $(INC) $(LIB) -o bin/tester
 
 run:
 	$(TARGET)
