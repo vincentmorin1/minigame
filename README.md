@@ -1,4 +1,8 @@
 [![Build Status](https://travis-ci.org/vincentmorin1/minigame.svg?branch=master)](https://travis-ci.org/vincentmorin1/minigame)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=morinchocotminigame&metric=alert_status)](https://sonarcloud.io/api/project_badges/measure?project=morinchocotminigame&metric=alert_status)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=morinchocotminigame&metric=bugs)](https://sonarcloud.io/api/project_badges/measure?project=morinchocotminigame&metric=bugs)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=morinchocotminigame&metric=vulnerabilities)](https://sonarcloud.io/api/project_badges/measure?project=morinchocotminigame&metric=vulnerabilities)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=morinchocotminigame&metric=code_smells)](https://sonarcloud.io/api/project_badges/measure?project=morinchocotminigame&metric=code_smells)
 
 # Our minigame by @Chocorean & @vincentmorin1
 
