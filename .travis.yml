@@ -1,25 +1,19 @@
 sudo: required
 
 before_install:
-	- mkdir bin build tmp
-	- sudo apt install -y libegl1-mesa-dev
-	- sudo apt install -y libgles2-mesa-dev
-	- sudo apt install -y libsdl2-dev
+  - mkdir bin build tmp
+  - sudo apt install -y libegl1-mesa-dev
+  - sudo apt install -y libgles2-mesa-dev
+  - sudo apt install -y libsdl2-dev
 
 addons:
-	apt:
-		update: true
-	sonarcloud:
-		organization: "minigamekey"
-		token:
-			secure: UhvG2yty4rCWaBxxwGXFphs+RPRawC41ThOpfYIwr90RA+8Nf3k/KPi8KVgyV36VFHlxPsQG7h74g5UvtOgqXeJ+5+nMwfODEvCZgM2bXUPVasQaMJpp+RA4JNejEs60mS6AJ0yLkwRGgT0F5m1UlhvAMhbD8GsjfVKL5Gw+Uuo6MpzAgKrmfPD9WHSOWSYZBS9R5/Duw2ybJRfxieIXirwTZvJIYvYmK25A/eFhwv8RNGSvFwfjcm56tJGn0sGY+RPP0oDLOrXcg0Z6JoOvYV+DgQo7egO6E6XMJRQcVgYNwsya3n3dfaABChlY5RbLQiecIFdrH3wjOG04wDeR9FXw8Wvg5GuPtgCKm30ocrH7rF4156iFyQxV7EF++Yd80TKPHDmZQ7K9aFKweplZeLAx3VJ+AOoPTFYg/hKtKljgPnOhqQuhV1d24zLDvpW5GZ7YBuFp2jOk2rXe9nMF9HOD3ssQgKyeN3pewc4Q/rPJpOrHAsiItBD0mZK1pYZ1LsAZCIxSfFaOHIozutlSx3ioHMZ5l+bXkU+RyQ8NQ0fHxrffUCydWADBQXarIa2ozCz2PSvr3MsaAaW5gPK+kovlvYP3k0b6rbN4woMdbKqoCau7D9/Bh/x3avx6yrvTjY0t+I39Xqx8CCZAp/MHq5+XXuj5yt3mpCRc/0fZ+H8=
+  apt:
+    update: true
 
 language: c++
 
 compiler:
-	- gcc
+  - gcc
 
 script:
-	- make
-	- sonar-scanner
-    
+- make
