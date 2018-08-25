@@ -9,7 +9,7 @@ OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 LIB := -L lib -L /usr/local/Cellar -L /usr/local/lib
 INC := -I include -I /usr/local/include -I /usr/include/c++/7
 
-CFLAGS := -g -Wall
+CFLAGS := -g -Wall -std=c++11
 ifeq ($(OS), "Windows_NT")
 		LDFLAGS := -lSDL2 -lopengl32 -lglu32
 else

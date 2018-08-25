@@ -51,19 +51,6 @@ int main(int argc, char **argv)
         return -1;
     }
     Logger(DEBUG) << "SDL correctly initialized.";
-    // OpenGL version
-    if (SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3) < 0)
-    {
-        Logger(ERROR) << "Could not initialize OpenGL v3: " << SDL_GetError();
-        SDL_Quit();
-        return -1;
-    }
-    if (SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1) < 0)
-    {
-        Logger(ERROR) << "Could not initialize OpenGL v3.1: " << SDL_GetError();
-        SDL_Quit();
-        return -1;
-    }
 
     // Double Buffer
     if (SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1) < 0)
