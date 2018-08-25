@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     {
         for (int i=1; i<argc; i++)
         {
-            Logger(INFO) << "    Argument #" << i << ": " << *(argv+i);
+            Logger(INFO) << "Argument #" << i << ": " << *(argv+i);
         }
     }
     // SDL2 Init
@@ -52,12 +52,32 @@ int main(int argc, char **argv)
     }
     Logger(DEBUG) << "SDL correctly initialized.";
     // OpenGL version
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+    if (SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3) < 0)
+    {
+        Logger(ERROR) << "Could not initialize OpenGL v3: " << SDL_GetError();
+        SDL_Quit();
+        return -1;
+    }
+    if (SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1) < 0)
+    {
+        Logger(ERROR) << "Could not initialize OpenGL v3.1: " << SDL_GetError();
+        SDL_Quit();
+        return -1;
+    }
 
     // Double Buffer
-    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+    if (SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1) < 0)
+    {
+        Logger(ERROR) << "Could not enable double buffer: " << SDL_GetError();
+        SDL_Quit();
+        return -1;
+    }
+    if (SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24) < 0)
+    {
+        Logger(ERROR) << "Could not set depth size: " << SDL_GetError();
+        SDL_Quit();
+        return -1;
+    }
 
     // Creating window
     SDL_Window *window(0);
