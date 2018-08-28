@@ -1,8 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Logger.h"
+#include "TilePosition.h"
+#include "CastUtils.h"
+
+using namespace std;
 
 int main()
 {
-	fprintf(stdout, "%s", "Hello world\n");
-	return 0;
+  Logger(INFO) << "Beginning tests.";
+  TilePosition pos;
+  Logger(INFO) << "Tests completed.";
 }

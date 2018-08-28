@@ -8,6 +8,7 @@
 #define CASTUTILS_H
 
 #include <sstream>
+#include <iostream>
 
 using namespace std;
 
