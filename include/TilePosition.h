@@ -32,6 +32,6 @@ class TilePosition
   
   private:
     int m_x, m_y;
-} TilePosition, TilePos;
+};
 
 #endif

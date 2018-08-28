@@ -29,17 +29,15 @@ TilePosition *TilePosition::north()
 {
   return new TilePosition(m_x, m_y-1);
 }
-TilePosition::TilePosition *TilePosition::south()
+TilePosition *TilePosition::south()
 {
   return new TilePosition(m_x, m_y+1);
 }
-/*
-TilePosition::TilePosition *TilePosition::east()
+TilePosition *TilePosition::east()
 {
   return new TilePosition(m_x+1, m_y);
 }
-TilePosition::TilePosition *TilePosition::west()
+TilePosition *TilePosition::west()
 {
   return new TilePosition(m_x-1, m_y);
 }
-*/

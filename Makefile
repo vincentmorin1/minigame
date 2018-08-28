@@ -52,6 +52,7 @@ clean:
 test: $(TESTOBJECTS)
 	@echo "Linking..."
 	@echo " $(CC) $^ $(LDFLAGS) -o $(TESTTARGET) $(LIB)"; $(CC) $^ $(LDFLAGS) -o $(TESTTARGET) $(LIB)
+	$(TESTTARGET)
 
 run:
 	$(TARGET)
