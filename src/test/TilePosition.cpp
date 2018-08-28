@@ -16,12 +16,23 @@ TilePosition::TilePosition() : m_x(0), m_y(0)
 TilePosition::TilePosition(int x, int y)
 {
   m_x = x >= 0 ? x : 0;
-  m_x = y >= 0 ? y : 0;
+  m_y = y >= 0 ? y : 0;
 }
 
 TilePosition::~TilePosition()
 {
 
+}
+
+/* Getters */
+int TilePosition::getX()
+{
+  return m_x;
+}
+
+int TilePosition::getY()
+{
+  return m_y;
 }
 
 /* Adjacent positions */

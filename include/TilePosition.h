@@ -16,14 +16,9 @@ class TilePosition
     ~TilePosition();
 
     /* GETTERS */
-    int getX()
-    {
-      return m_x;
-    }
-    int getY()
-    {
-      return m_y;
-    }
+    int getX();
+    int getY();
+    
     /* Adjacent positions */
     TilePosition *north();
     TilePosition *south();
